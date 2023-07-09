@@ -1,12 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-//import { Buscador } from './componentes/buscador/buscador'
-import { App } from 'src'
-
+import App from './App.jsx'
+import { ChakraProvider } from '@chakra-ui/react'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
-    <App/>
+     <ChakraProvider/>
+     <App />
+    <ChakraProvider/>
+    
   </React.StrictMode>,
 )
