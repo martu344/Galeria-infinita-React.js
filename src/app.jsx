@@ -1,8 +1,9 @@
 
 import { useEffect, useState } from 'react'
 import './App.css'
+import React from 'react'
 import { Prueba } from './prueba'
-import { Button, Input } from '@chakra-ui/react'
+import { Button, Input,Flex } from '@chakra-ui/react'
 
 let verificador=true
 
@@ -59,11 +60,13 @@ let verificador=true
   
   return (
     <>
-    <header>
-      <Input  value={inputValue}
+   <Flex justifyContent={'center'}>
+      
+      <Input margin = {15} color={'white'} value={inputValue}
         onChange={(event) => setInputValue(event.target.value)} variant={'filled'} marginBottom={30}  focusBorderColor='red' width={400} borderRadius={5}  height={30}paddingLeft={5}placeholder={'Buscar imagen'} type="text" />
       <Button onClick={buscador}>Buscar</Button>
-    </header>
+    </Flex>
+   
    <Prueba arraycompleto={url} arraycompletobuscador={urlbuscador} verificador={verificador} />
     </>
   )
