@@ -5,7 +5,7 @@ const Prueba = ({arraycompleto,arraycompletobuscador,verificador}) => {
     let src = arraycompleto
     src = verificador?src=arraycompleto : src=arraycompletobuscador
 
-    //console.log('llego al render',src)
+    console.log('llego al render',src)
  
   return(
         <>

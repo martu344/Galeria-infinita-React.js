@@ -5,38 +5,40 @@ import { Prueba } from './prueba'
 import { Button, Input } from '@chakra-ui/react'
 
 let verificador=true
-let altura = 0;
+
 
  function App() {
-  
+  const [altura,setaltura]=useState(100)
   const [{url,urlbuscador},arrayfotos]=useState({url:[],urlbuscador:[]})
   const[{numero,texto},cambio]=useState({numero:1,texto:""})
   const [inputValue, setInputValue] = useState('');
   window.addEventListener('scroll', scrollInfinito);
 
  
-  async function scrollInfinito() { 
+ function scrollInfinito() { 
    let scrolltop = document.documentElement.scrollTop
-   scrolltop>=altura?cambio({numero:(numero+1),texto}):console.log("ERROR", "altura= ",altura, "scrolltop= ",scrolltop,"numero= ", numero) 
+   scrolltop>=altura?cambio({numero:(numero+1),texto}):console.log("altura= ",altura, "scrolltop= ",scrolltop,"numero= ", numero) 
    
 }
 
   const buscador =()=>{
     verificador=false
-    altura=0;
+   setaltura(0)
     console.log("paso por buscador y la altura es= "+altura)
-    cambio({numero,texto:inputValue})
+    cambio({numero:1,texto:inputValue})
     }
    
  async function llamado(){
   await fetch(`https://api.unsplash.com/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk`)
     .then(respuesta=>respuesta.json())
        .then(numero<=1?datos =>arrayfotos({url:datos}):datos => arrayfotos({url:url.concat(datos),urlbuscador}))
+       console.log("paso++")
   }
   async function buscando(){
    await fetch(`https://api.unsplash.com/search/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk&query=${texto}`)
     .then(respuesta=>respuesta.json())
        .then(numero<=1?datos =>arrayfotos({urlbuscador:datos.results}):datos => arrayfotos({url,urlbuscador:urlbuscador.concat(datos.results)}))   
+       console.log("paso")
   }
 
 
@@ -45,13 +47,13 @@ let altura = 0;
     if(verificador){
           llamado()
           console.log("llega al llamado")
-          altura +=100
+         setaltura(altura+100)
        }
        else{ 
        buscando()
        console.log("paso por buscando y verificador es= "+verificador)
-       altura +=50
-       cambio({numero:1,texto})
+       setaltura(altura+100)
+       //cambio({numero:1,texto})
        }}, [numero,texto])
 
   
