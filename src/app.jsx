@@ -13,11 +13,12 @@ let verificador=true
   const [{url,urlbuscador},arrayfotos]=useState({url:[],urlbuscador:[]})
   const[{numero,texto},cambio]=useState({numero:1,texto:""})
   const [inputValue, setInputValue] = useState('');
+  const [scrolltop,setscrolltop]=useState(0)
   window.addEventListener('scroll', scrollInfinito);
 
  
  function scrollInfinito() { 
-   let scrolltop = document.documentElement.scrollTop
+   setscrolltop(document.documentElement.scrollTop)
    scrolltop>=altura?cambio({numero:(numero+1),texto}):console.log("altura= ",altura, "scrolltop= ",scrolltop,"numero= ", numero) 
    
 }
@@ -67,7 +68,7 @@ let verificador=true
       <Button onClick={buscador}>Buscar</Button>
    </Flex>
     
-   <Prueba  arraycompleto={url} arraycompletobuscador={urlbuscador} verificador={verificador} />
+   <Prueba scrolltop={scrolltop} arraycompleto={url} arraycompletobuscador={urlbuscador} verificador={verificador} />
  
     </>
   )
