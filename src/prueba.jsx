@@ -3,16 +3,23 @@ import React, { useEffect, useState } from 'react'
 
 
 const Prueba = ({arraycompleto,arraycompletobuscador,verificador}) => {
-    const [{activador,srczoom},setactivador]=useState({activador:true,srczoom:' '})
+    const[activado,setactivador]=useState(true)
+    const [srczoom,setsrczoom]=useState('')
     const [iden,setiden]=useState(0)
+   
     let src = arraycompleto
     src = verificador?src=arraycompleto : src=arraycompletobuscador
-
+    const cerrar =()=>{
+            setactivador(true)
+    }
+    
     const zoom=(event)=>{
-        setactivador({activador:false,srczoom:event.target.getAttribute('src')})
+        setactivador(false)
+        setsrczoom(event.target.getAttribute('src'))
         console.log('el iden que tendria que ser segun la imagen seleccionada',event.target.getAttribute('id'))
         setiden(event.target.getAttribute('id'))
         console.log('iden inicial= ',iden)
+        console.log("activado= ",activado)
     }
 
     const atras=()=>{
@@ -24,14 +31,14 @@ const Prueba = ({arraycompleto,arraycompletobuscador,verificador}) => {
         console.log('iden+1 = ',iden)
     }
     useEffect(()=>{
-        src.map((element,index)=>{index==iden?setactivador({activador,srczoom:element.urls.small}):console.log('ERROR')})
+        src.map((element,index)=>{index==iden?setsrczoom(element.urls.regular):console.log('ERROR')})
         console.log('paso por useeffect = ',iden)
     }, [iden])
     
  
   return(
         <>
-        {activador?
+        {activado?
         <Flex justifyContent={'space-between'} wrap={'wrap'}>
 
         {src==undefined? <p>cargando...</p>:src.map((elemento,index) => (
@@ -47,11 +54,14 @@ const Prueba = ({arraycompleto,arraycompletobuscador,verificador}) => {
                 </Card>
             </React.Fragment>
                  ))}
-        </Flex>:  <Flex color={'white'}justifyContent={'space-between'} wrap={'wrap'}>
-         <React.Fragment >
+        </Flex>:  <Flex zIndex={10} bg={'black'} color={'white'} justifyContent={'space-between'} wrap={'wrap'}>
+         <React.Fragment>
+            <Flex   >
             <button onClick={atras}>atras</button>
-            <Image src={srczoom} alt="" />
+            <Image h='100vh' justifyContent={'center'} src={srczoom} alt="" />
             <button onClick={adelante}>adelante</button>
+            <button onClick={cerrar}>cerrar</button>
+            </Flex>
         </React.Fragment>
         </Flex>
         }

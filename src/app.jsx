@@ -24,7 +24,7 @@ let verificador=true
 
   const buscador =()=>{
     verificador=false
-   setaltura(0)
+    setaltura(0)
     console.log("paso por buscador y la altura es= "+altura)
     cambio({numero:1,texto:inputValue})
     }
@@ -33,7 +33,7 @@ let verificador=true
   await fetch(`https://api.unsplash.com/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk`)
     .then(respuesta=>respuesta.json())
        .then(numero<=1?datos =>arrayfotos({url:datos}):datos => arrayfotos({url:url.concat(datos),urlbuscador}))
-       console.log("paso++")
+       console.log("paso++", url)
   }
   async function buscando(){
    await fetch(`https://api.unsplash.com/search/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk&query=${texto}`)
@@ -60,14 +60,15 @@ let verificador=true
   
   return (
     <>
+    
    <Flex justifyContent={'center'}>
-      
       <Input margin = {15} color={'white'} value={inputValue}
         onChange={(event) => setInputValue(event.target.value)} variant={'filled'} marginBottom={30}  focusBorderColor='red' width={400} borderRadius={5}  height={30}paddingLeft={5}placeholder={'Buscar imagen'} type="text" />
       <Button onClick={buscador}>Buscar</Button>
-    </Flex>
-   
-   <Prueba arraycompleto={url} arraycompletobuscador={urlbuscador} verificador={verificador} />
+   </Flex>
+    
+   <Prueba  arraycompleto={url} arraycompletobuscador={urlbuscador} verificador={verificador} />
+ 
     </>
   )
 }
