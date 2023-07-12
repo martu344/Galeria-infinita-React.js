@@ -1,10 +1,10 @@
 import { Card, Text, Flex,Image, Box, Button, CardHeader, CardBody, CardFooter, Img } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { estilo } from '../style'
-import heart from '../public/heart-solid.svg'
-import cruz from '../public/cruz.svg'
-import left from '../public/left.svg'
-import right from '../public/right.svg'
+import heart from '/heart-solid.svg'
+import cruz from '/cruz.svg'
+import left from '/left.svg'
+import right from '/right.svg'
 import '../stile.css'
 
 const Prueba = ({scrolltop,url,urlbuscador,verificador}) => {
