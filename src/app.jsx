@@ -1,9 +1,9 @@
 
 import { useEffect, useState } from 'react'
-import './App.css'
 import React from 'react'
 import { Prueba } from './prueba'
 import { Button, Input,Flex } from '@chakra-ui/react'
+
 
 let verificador=true
 
@@ -55,7 +55,6 @@ let verificador=true
        buscando()
        console.log("paso por buscando y verificador es= "+verificador)
        setaltura(altura+100)
-       //cambio({numero:1,texto})
        }}, [numero,texto])
 
   
@@ -67,7 +66,6 @@ let verificador=true
         onChange={(event) => setInputValue(event.target.value)} variant={'filled'} marginBottom={30}  focusBorderColor='red' width={400} borderRadius={5}  height={30}paddingLeft={5}placeholder={'Buscar imagen'} type="text" />
       <Button onClick={buscador}>Buscar</Button>
    </Flex>
-    
    <Prueba scrolltop={scrolltop} arraycompleto={url} arraycompletobuscador={urlbuscador} verificador={verificador} />
  
     </>
