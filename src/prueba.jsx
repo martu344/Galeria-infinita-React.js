@@ -42,19 +42,82 @@ const Prueba = ({scrolltop,arraycompleto,arraycompletobuscador,verificador}) => 
         console.log('paso por useeffect = ',iden)
     }, [iden])
   
- 
-  return(
-        <>
-       
-        <Flex filter={activado?"blur(5px)":'auto'} alignContent={'space-around'} alignItems={'baseline'} wrap={'wrap'}>
-
-        {src==undefined? <p>cargando...</p>:src.map((elemento,index) => (
-          
-                    <Image id={index} key={elemento.id} src={elemento.urls.small} alt="" />
-                  
-           
-                 ))}
-        </Flex> 
+    const [numero1, setNumero1] = useState(1);
+    const [numero2, setNumero2] = useState(2);
+    const [numero3, setNumero3] = useState(3);
+    
+    return (
+      <>
+        <div className='row'>
+          {src == undefined ? (
+            <p>cargando...</p>
+          ) : (
+            src.map((elemento, index) => {
+              if (index == numero1) {
+                setNumero1(numero1 + 3);
+               console.log('paso por numero1');
+                  const componente =(
+                    <div className="row flex-column flex-md-row" key={index}>
+                      <div className="col">
+                        <img
+                          onClick={zoom}
+                          id={index}
+                          key={elemento.id}
+                          src={elemento.urls.small}
+                          style={{ maxWidth: '100%', maxHeight: '100%' }}
+                          alt=""
+                        />
+                      </div>
+                    </div>)
+               return componente
+                
+                
+              } else if (index == numero2) {
+                setNumero2(numero2 + 3);
+                console.log('paso por numero2');
+                  <div className="container" key={index}>
+                    <div className="row flex-column flex-md-row">
+                      <div className="col">
+                        <img
+                          onClick={zoom}
+                          id={index}
+                          key={elemento.id}
+                          src={elemento.urls.small}
+                          style={{ maxWidth: '100%', maxHeight: '100%' }}
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                
+               
+              } else if (index == numero3) {
+                setNumero3(numero3 + 3);
+                console.log('paso por numero3');
+                  <div className="container" key={index}>
+                    <div className="row flex-column flex-md-row">
+                      <div className="col">
+                        <img
+                          onClick={zoom}
+                          id={index}
+                          key={elemento.id}
+                          src={elemento.urls.small}
+                          style={{ maxWidth: '100%', maxHeight: '100%' }}
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+            
+                
+              } else {
+                console.log('error');
+                return null;
+              }
+            })
+          )}
+        </div>
+        {componente}
         {
         activado && 
             <Flex style={{ position: "absolute", top: `${scrolltop}px`, zIndex: 1,left: `50% `,transform: "translateX(-50%)"
