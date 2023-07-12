@@ -1,0 +1,30 @@
+.classdescripcion {
+    animation-name: mostrar;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes mostrar {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(300px);
+    }
+  }
+
+  .classdescripcion2 {
+    animation-name: mostrar;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    background-color:rgba(0, 0, 0, 0.6);
+  }
+  
+  @keyframes mostrar {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
