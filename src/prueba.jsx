@@ -5,7 +5,10 @@ import heart from '/heart-solid.svg'
 import cruz from '/cruz.svg'
 import left from '/left.svg'
 import right from '/right.svg'
+import up from '/up.svg'
+import down from '/down.svg'
 import '../stile.css'
+import { wrap } from 'framer-motion'
 
 const Prueba = ({scrolltop,url,urlbuscador,verificador}) => {
 
@@ -119,19 +122,23 @@ const Prueba = ({scrolltop,url,urlbuscador,verificador}) => {
                         <Button _hover={{}} bg='transparent' h='10vh'marginBottom="40vh"onClick={cerrar}><Image src={cruz}/></Button>
                         <Button _hover={{}} bg='transparent' onClick={atras}><Image src={left}/></Button>
                     </Box>
-                    <Box position="relative">
-                        <Image h='100vh' justifyContent={'center'} src={srczoom} alt="" />
+                    <Box w={400}  position="relative">
+                        <Image h='100vh'justifyContent={'center'} src={srczoom} alt="" />
 
-                        <Button className={descrp ? 'classdescripcion' :null} sx={estilo.boton} onClick={description}> apreta</Button>
+                        <Button _hover={{}} className={descrp ? 'classdescripcion' :null} sx={estilo.boton} onClick={description}><Image src={up}/> </Button>
 
-                        {descrp&&<Box className={descrp ? 'classdescripcion2' :null} sx={estilo.descrp} >
+                        {descrp&&
+                        <Box  className={descrp ? 'classdescripcion2' :null} sx={estilo.descrp} >
+                            <Button _hover={{}} sx={estilo.boton2} onClick={description}> <Image src={down}/> </Button>
                             {src.map((elemento,index)=> iden==index?
                             <>
-                            <Text>{elemento.alt_description==null?'Sin especificar':elemento.alt_description}</Text>
-                            <Text >Ubicacion: {elemento.user.location==null? 'Sin especificar':elemento.user.location}</Text>
+                            <Text >Desc: {elemento.alt_description==null?'Sin especificar':elemento.alt_description}</Text>
+                            <Text >Ubi: {elemento.user.location==null? 'Sin especificar':elemento.user.location}</Text>
                             <Text>Fecha: {elemento.created_at==null?'Sin especificar':elemento.created_at}</Text>
                             </>:null
-                            )}</Box>}
+                            )}
+                        </Box>
+                        }
                     </Box>
                     <Button _hover={{}} bg='transparent' marginTop='50vh' onClick={adelante}><Image src={right}/></Button>
                 </Flex>

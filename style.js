@@ -28,14 +28,21 @@ const estilo={
         wrap:'wrap'
     },
     boton: {
-        position:"relative",
-        bottom:"0",
+        position:"absolute",
+        bottom:"55",
         left:"0",
         right:"0",
         bg:'transparent'
       },
+      boton2: {
+        textAlign:'center',
+        color:'white',
+        marginLeft:'45%',
+        bg:'transparent'
+      },
     descrp:{
       position:"relative",
+      w:'400',
       zIndex:'5',
       bottom:"10",
     }
