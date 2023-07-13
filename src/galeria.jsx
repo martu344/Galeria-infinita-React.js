@@ -10,9 +10,9 @@ import down from '/down.svg'
 import '../stile.css'
 import { wrap } from 'framer-motion'
 
-const Prueba = ({scrolltop,url,urlbuscador,verificador}) => {
+const Galeria = ({setactivador,activado,scrolltop,url,urlbuscador,verificador}) => {
 
-    const[activado,setactivador]=useState(false)
+    
     const [srczoom,setsrczoom]=useState('')
     const [iden,setiden]=useState(0)
     const [descrp,setdescrp]=useState(false)
@@ -58,7 +58,7 @@ const Prueba = ({scrolltop,url,urlbuscador,verificador}) => {
           {src == undefined ? 
             <p>NOT FOUND!!</p>
            : 
-                <Box filter={activado?"blur(5px)":'auto'} className='row'>
+                <Box overflow={'hidden'} filter={activado?"blur(5px)":'auto'} className='row'>
                     <div className='col'> 
                         {src.map((elemento,index)=> index%3==0
                             ?
@@ -114,21 +114,21 @@ const Prueba = ({scrolltop,url,urlbuscador,verificador}) => {
             
         {
         activado && 
-        <Flex sx={estilo.zoom} style={{ top: `${scrolltop}px`
+        <Flex overflow={activado?"hidden":'auto'}  sx={estilo.zoom} style={{ top: `${scrolltop}px`
              }}>
-            <React.Fragment>
+            <React.Fragment >
                 <Flex   >
                     <Box display="flex" flexDirection="column"  h='100vh'>
                         <Button _hover={{}} bg='transparent' h='10vh'marginBottom="40vh"onClick={cerrar}><Image src={cruz}/></Button>
                         <Button _hover={{}} bg='transparent' onClick={atras}><Image src={left}/></Button>
                     </Box>
-                    <Box w={400}  position="relative">
-                        <Image h='100vh'justifyContent={'center'} src={srczoom} alt="" />
+                    <Box overflow={'scroll'} h={'100vh'}  position="relative">
+                        <Image justifyContent={'center'} src={srczoom} alt="" />
 
-                        <Button _hover={{}} className={descrp ? 'classdescripcion' :null} sx={estilo.boton} onClick={description}><Image src={up}/> </Button>
+                        <Button _hover={{}}  sx={estilo.boton} onClick={description}><Image src={up}/> </Button>
 
                         {descrp&&
-                        <Box  className={descrp ? 'classdescripcion2' :null} sx={estilo.descrp} >
+                        <Box style={{ top: `${scrolltop}px`}} className={descrp ? 'classdescripcion2' :null} sx={estilo.descrp} >
                             <Button _hover={{}} sx={estilo.boton2} onClick={description}> <Image src={down}/> </Button>
                             {src.map((elemento,index)=> iden==index?
                             <>
@@ -150,4 +150,4 @@ const Prueba = ({scrolltop,url,urlbuscador,verificador}) => {
     )
 }
 
-export { Prueba }
+export { Galeria }

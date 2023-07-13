@@ -1,14 +1,14 @@
 
 import { useEffect, useState } from 'react'
 import React from 'react'
-import { Prueba } from './prueba'
+import { Galeria } from './galeria'
 import { Button, Input,Flex } from '@chakra-ui/react'
 
 
 let verificador=true
 
 
- function App() {
+ function App({activado,setactivador}) {
   const [altura,setaltura]=useState(100)
   const [{url,urlbuscador},arrayfotos]=useState({url:[],urlbuscador:[]})
   const[{numero,texto},cambio]=useState({numero:1,texto:""})
@@ -64,7 +64,7 @@ let verificador=true
         onChange={(event) => setInputValue(event.target.value)} variant={'filled'} marginBottom={30}  width={400} borderRadius={5}  height={30}paddingLeft={5}placeholder={'Buscar imagen'} type="text" />
       <Button onClick={buscador}>Buscar</Button>
    </Flex>
-   <Prueba scrolltop={scrolltop} url={url} urlbuscador={urlbuscador} verificador={verificador} />
+   <Galeria setactivador={setactivador} activado={activado} scrolltop={scrolltop} url={url} urlbuscador={urlbuscador} verificador={verificador} />
  
     </>
   )

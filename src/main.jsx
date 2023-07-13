@@ -2,7 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './app'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
 
+
+const Main = ()=>{
+const[activado,setactivador]=useState(false)
+const valoroverflow= activado?'hidden':'auto';
 const theme = extendTheme({
   styles: {
     global: {
@@ -10,16 +15,20 @@ const theme = extendTheme({
         bg:'#242424',
         display:"flex",
         justifyContent:"center",
-        alignItems:"center"
-
+        alignItems:"center",
+        overflow:valoroverflow
       }
     }
   }
 });
-ReactDOM.createRoot(document.getElementById('root')).render(
+return (
+
   <React.StrictMode>
-    <ChakraProvider theme={theme}>
-     <App />
+     <ChakraProvider  theme={theme}>
+    <App activado={activado} setactivador={setactivador} />
     </ChakraProvider>
-  </React.StrictMode>,
-)
+</React.StrictMode>
+
+
+)}
+ReactDOM.createRoot(document.getElementById('root')).render(<Main/>)

@@ -1,4 +1,4 @@
-.classdescripcion {
+/* .classdescripcion {
     animation-name: mostrar;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
@@ -11,10 +11,9 @@
     100% {
       transform: translateY(300px);
     }
-  }
+  } */
 
   .classdescripcion2 {
-    width: 400px;
     animation-name: mostrar;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
@@ -26,6 +25,6 @@
       transform: translateY(0);
     }
     100% {
-      transform: translateY(-100%);
+      transform: translateY(-1%);
     }
   }

@@ -29,7 +29,7 @@ const estilo={
     },
     boton: {
         position:"absolute",
-        bottom:"55",
+        bottom:"0",
         left:"0",
         right:"0",
         bg:'transparent'
@@ -41,10 +41,12 @@ const estilo={
         bg:'transparent'
       },
     descrp:{
-      position:"relative",
-      w:'400',
+      position:"absolute",
+      
+      left:"0",
+      right:"0",
       zIndex:'5',
-      bottom:"10",
+      bottom:"0",
     }
 }
 
