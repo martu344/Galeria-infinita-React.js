@@ -4,10 +4,11 @@ const estilo={
         position:"absolute",
         bottom:"0",
         left:"0",
-        p:"4",
+        p:"1em",
         color:"white",
         fontWeight:"bold",
         textAlign:"center",
+        fontSize:['sm', 'md', 'lg'],
       },
       text2: {
         position:"absolute",
@@ -17,6 +18,7 @@ const estilo={
         color:"white",
         fontWeight:"bold",
         textAlign:"center",
+        fontSize:['sm', 'md', 'lg']
       },
       zoom:{
         position: "absolute",  
@@ -32,7 +34,7 @@ const estilo={
         bottom:"0",
         left:"0",
         right:"0",
-        bg:'transparent'
+        bg:'rgba(0, 0, 0, 0.6)'
       },
       boton2: {
         textAlign:'center',
@@ -53,7 +55,7 @@ const estilo={
       color:'white',
       variant:'filled',
       marginBottom:'3em',
-      width:'40em',
+      width:['sm', 'md', 'lg'],
       borderRadius:'5',
       height:'3em',
       paddingLeft:'5',
