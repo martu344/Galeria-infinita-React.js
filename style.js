@@ -42,11 +42,23 @@ const estilo={
       },
     descrp:{
       position:"absolute",
-      
+      top:'0',
       left:"0",
       right:"0",
       zIndex:'5',
       bottom:"0",
+    },
+    input:{
+      margin:'15',
+      color:'white',
+      variant:'filled',
+      marginBottom:'3em',
+      width:'40em',
+      borderRadius:'5',
+      height:'3em',
+      paddingLeft:'5',
+      
+      
     }
 }
 

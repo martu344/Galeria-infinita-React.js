@@ -31,7 +31,7 @@ const Galeria = ({setactivador,activado,scrolltop,url,urlbuscador,verificador}) 
                             ?
                             <>
                                 <Box position="relative" key={index}>
-                                    <Image marginTop='5' marginBottom='5' id={index} onClick={zoom}  src={elemento.urls.small}/> 
+                                    <Image marginTop='5' marginBottom='5'key={elemento.id} id={index} onClick={zoom}  src={elemento.urls.small}/> 
                                     <Text sx={estilo.text}>
                                     By {elemento.user.name}
                                     </Text>
@@ -47,8 +47,8 @@ const Galeria = ({setactivador,activado,scrolltop,url,urlbuscador,verificador}) 
                         {src.map((elemento,index)=> index%2==0&&index%3!=0
                             ?
                             <>
-                                <Box position="relative" key={index}>
-                                    <Image marginTop='5' marginBottom='5' id={index}onClick={zoom}  src={elemento.urls.small}/> 
+                                <Box position="relative" key={index+"A"}>
+                                    <Image marginTop='5' marginBottom='5'key={elemento.id}id={index}onClick={zoom}  src={elemento.urls.small}/> 
                                     <Text sx={estilo.text}>
                                         By {elemento.user.name}
                                     </Text>
@@ -63,8 +63,8 @@ const Galeria = ({setactivador,activado,scrolltop,url,urlbuscador,verificador}) 
                         {src.map((elemento,index)=> index%1==0&&index%2!=0&&index%3!=0
                            ?
                            <>
-                                <Box position="relative" key={index}>
-                                    <Image marginTop='5' marginBottom='5' id={index}onClick={zoom}  src={elemento.urls.small}/> 
+                                <Box position="relative" key={index+'AA'}>
+                                    <Image marginTop='5' marginBottom='5' key={elemento.id} id={index}onClick={zoom}  src={elemento.urls.small}/> 
                                     <Text sx={estilo.text}>
                                     By {elemento.user.name}
                                     </Text>
@@ -80,7 +80,7 @@ const Galeria = ({setactivador,activado,scrolltop,url,urlbuscador,verificador}) 
           }
             
         {
-          activado &&  <Zoom setsrczoom={setsrczoom} srczoom={srczoom} iden={iden} src={src} setactivador={setactivador} activado={activado} scrolltop={scrolltop}/>
+          activado &&  <Zoom  setsrczoom={setsrczoom} srczoom={srczoom} setiden={setiden} iden={iden} src={src} setactivador={setactivador} activado={activado} scrolltop={scrolltop}/>
         }
         </>
     )

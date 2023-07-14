@@ -9,7 +9,7 @@ import { estilo } from '../style'
 import '../stile.css'
 
 
-const Zoom = ({setsrczoom,srczoom,iden,src,setactivador,activado,scrolltop})=>{
+const Zoom = ({setsrczoom,srczoom,setiden,iden,src,setactivador,activado,scrolltop})=>{
   
     const [descrp,setdescrp]=useState(false)
     
@@ -28,7 +28,9 @@ const Zoom = ({setsrczoom,srczoom,iden,src,setactivador,activado,scrolltop})=>{
        // console.log('iden+1 = ',iden)
     }
     useEffect(()=>{
-        src.map((element,index)=>{index==iden?setsrczoom(element.urls.regular):null})
+        const cargarimg = async()=>{
+         await src.map((element,index)=>{index==iden?setsrczoom(element.urls.regular):null})}
+         cargarimg()
         //console.log('paso por useeffect = ',iden)
     }, [iden])
 
@@ -39,7 +41,7 @@ const Zoom = ({setsrczoom,srczoom,iden,src,setactivador,activado,scrolltop})=>{
 
     return(
         <>
-        <Flex overflow={activado?"hidden":'auto'}  sx={estilo.zoom} style={{ top: `${scrolltop}px`
+        <Flex overflow={activado?"hidden":'auto'}  sx={estilo.zoom} style={{ top:`${scrolltop}px`
              }}>
             <React.Fragment >
                 <Flex   >
@@ -47,18 +49,20 @@ const Zoom = ({setsrczoom,srczoom,iden,src,setactivador,activado,scrolltop})=>{
                         <Button _hover={{}} bg='transparent' h='10vh'marginBottom="40vh"onClick={cerrar}><Image src={cruz}/></Button>
                         <Button _hover={{}} bg='transparent' onClick={atras}><Image src={left}/></Button>
                     </Box>
-                    <Box overflow={'scroll'} h={'100vh'}  position="relative">
-                        <Image justifyContent={'center'} src={srczoom} alt="" />
+                    <Box overflow={'scroll'} overflowX={'hidden'} h={'100vh'}  position="relative">
+                      <Image justifyContent={'center'} src={srczoom} alt="" />
 
                         <Button _hover={{}}  sx={estilo.boton} onClick={description}><Image src={up}/> </Button>
 
                         {descrp&&
-                        <Box style={{ top: `${scrolltop}px`}} className={descrp ? 'classdescripcion2' :null} sx={estilo.descrp} >
+                        <Box className={descrp ? 'classdescripcion2' :null} sx={estilo.descrp} >
                             <Button _hover={{}} sx={estilo.boton2} onClick={description}> <Image src={down}/> </Button>
                             {src.map((elemento,index)=> iden==index?
                             <>
-                            <Text >Desc: {elemento.alt_description==null?'Sin especificar':elemento.alt_description}</Text>
-                            <Text >Ubi: {elemento.user.location==null? 'Sin especificar':elemento.user.location}</Text>
+                            <Text >Descripcion: {elemento.description==null?elemento.alt_description:elemento.description}</Text>
+                            <Text >Ubicacion: {elemento.user.location==null? 'Sin especificar':elemento.user.location}</Text>
+                            <Text >Likes: {elemento.likes==null? 'Sin especificar':elemento.likes}</Text>
+                            <Text >By {elemento.user.name==null? 'Sin especificar':elemento.user.name}</Text>
                             <Text>Fecha: {elemento.created_at==null?'Sin especificar':elemento.created_at}</Text>
                             </>:null
                             )}
