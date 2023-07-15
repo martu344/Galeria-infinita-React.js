@@ -5,7 +5,7 @@ import heart from '/heart-solid.svg'
 import '../stile.css'
 import { Zoom } from './zoom'
 
-const Galeria = ({setactivador,activado,scrolltop,url,urlbuscador,verificador}) => {
+const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbuscador,verificador}) => {
 
     let src = url
     src = verificador?src=url : src=urlbuscador
@@ -21,7 +21,6 @@ const Galeria = ({setactivador,activado,scrolltop,url,urlbuscador,verificador}) 
     
     return (
       <>
-        
           {src == undefined ? 
             <p>NOT FOUND!!</p>
            : 
@@ -30,13 +29,14 @@ const Galeria = ({setactivador,activado,scrolltop,url,urlbuscador,verificador}) 
                         {src.map((elemento,index)=> index%3==0
                             ?
                             <>
-                                <Box position="relative" key={index}>
+                                <Box position="relative">
                                     <Image marginTop='5' marginBottom='5'key={elemento.id} id={index} onClick={zoom}  src={elemento.urls.small}/> 
                                     <Text sx={estilo.text}>
                                     By {elemento.user.name}
                                     </Text>
                                     <Text sx={estilo.text2}>
-                                        <img src={heart} alt="" /> {elemento.likes}
+                                        <img src={heart} alt="" /> 
+                                        {elemento.likes}
                                     </Text>
                                 </Box>
                             </>
@@ -47,13 +47,14 @@ const Galeria = ({setactivador,activado,scrolltop,url,urlbuscador,verificador}) 
                         {src.map((elemento,index)=> index%2==0&&index%3!=0
                             ?
                             <>
-                                <Box position="relative" key={index+"A"}>
+                                <Box position="relative" >
                                     <Image marginTop='5' marginBottom='5'key={elemento.id}id={index}onClick={zoom}  src={elemento.urls.small}/> 
                                     <Text sx={estilo.text}>
                                         By {elemento.user.name}
                                     </Text>
-                                    <Text sx={estilo.text2}>
-                                    <img src={heart} alt="" />  {elemento.likes}
+                                    <Text sx={estilo.text2}>{/*sacar este texto cuando para el cel */}
+                                    <img src={heart} alt="" />  
+                                    {elemento.likes}
                                     </Text>
                                 </Box>
                             </>
@@ -63,13 +64,14 @@ const Galeria = ({setactivador,activado,scrolltop,url,urlbuscador,verificador}) 
                         {src.map((elemento,index)=> index%1==0&&index%2!=0&&index%3!=0
                            ?
                            <>
-                                <Box position="relative" key={index+'AA'}>
+                                <Box position="relative" >
                                     <Image marginTop='5' marginBottom='5' key={elemento.id} id={index}onClick={zoom}  src={elemento.urls.small}/> 
                                     <Text sx={estilo.text}>
                                     By {elemento.user.name}
                                     </Text>
                                     <Text sx={estilo.text2}>
-                                    <img src={heart} alt="" />  {elemento.likes}
+                                    <img src={heart} alt="" /> 
+                                    {elemento.likes}
                                     </Text>
                                 </Box>
                             </>
@@ -80,7 +82,7 @@ const Galeria = ({setactivador,activado,scrolltop,url,urlbuscador,verificador}) 
           }
             
         {
-          activado &&  <Zoom  setsrczoom={setsrczoom} srczoom={srczoom} setiden={setiden} iden={iden} src={src} setactivador={setactivador} activado={activado} scrolltop={scrolltop}/>
+          activado &&  <Zoom texto={texto} numero={numero} cambio={cambio}  setsrczoom={setsrczoom} srczoom={srczoom} setiden={setiden} iden={iden} src={src} setactivador={setactivador} activado={activado} scrolltop={scrolltop}/>
         }
         </>
     )

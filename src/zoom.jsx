@@ -9,7 +9,7 @@ import { estilo } from '../style'
 import '../stile.css'
 
 
-const Zoom = ({setsrczoom,srczoom,setiden,iden,src,setactivador,activado,scrolltop})=>{
+const Zoom = ({texto,numero,cambio,setsrczoom,srczoom,setiden,iden,src,setactivador,activado,scrolltop})=>{
   
     const [descrp,setdescrp]=useState(false)
     
@@ -19,14 +19,24 @@ const Zoom = ({setsrczoom,srczoom,setiden,iden,src,setactivador,activado,scrollt
     }
 
     const atras=()=>{
-       setiden(iden-1)
+        iden>0?setiden(iden-1):null
       // console.log('iden-1 = ',iden)
     }
 
     const adelante=()=>{
-        setiden(parseInt(iden)+1)
+        if(iden<(src.length-3))
+        {
+            setiden(parseInt(iden)+1)
+        }else{
+            setiden(parseInt(iden)+1)
+            cambio({numero:(numero+1),texto})
+        }
+       
+        }
+     
+      
        // console.log('iden+1 = ',iden)
-    }
+    
     useEffect(()=>{
         const cargarimg = async()=>{
          await src.map((element,index)=>{index==iden?setsrczoom(element.urls.regular):null})}
@@ -50,20 +60,20 @@ const Zoom = ({setsrczoom,srczoom,setiden,iden,src,setactivador,activado,scrollt
                         <Button _hover={{}} bg='transparent' onClick={atras}><Image src={left}/></Button>
                     </Box>
                     <Box overflow={'scroll'} overflowX={'hidden'} h={'100vh'}  position="relative">
-                      <Image justifyContent={'center'} src={srczoom} alt="" />
-
-                        <Button _hover={{}}  sx={estilo.boton} onClick={description}><Image src={up}/> </Button>
-
+                        <Image justifyContent={'center'} src={srczoom} alt="" />
+                        <Button _hover={{}} display={descrp?'none':'block'} sx={estilo.boton} onClick={description}><Image src={up}/> </Button>
                         {descrp&&
                         <Box className={descrp ? 'classdescripcion2' :null} sx={estilo.descrp} >
-                            <Button _hover={{}} sx={estilo.boton2} onClick={description}> <Image src={down}/> </Button>
+                            <Button _hover={{}} sx={estilo.boton2} onClick={description}> 
+                                <Image src={down}/> 
+                            </Button>
                             {src.map((elemento,index)=> iden==index?
                             <>
-                            <Text >Descripcion: {elemento.description==null?elemento.alt_description:elemento.description}</Text>
-                            <Text >Ubicacion: {elemento.user.location==null? 'Sin especificar':elemento.user.location}</Text>
-                            <Text >Likes: {elemento.likes==null? 'Sin especificar':elemento.likes}</Text>
-                            <Text >By {elemento.user.name==null? 'Sin especificar':elemento.user.name}</Text>
-                            <Text>Fecha: {elemento.created_at==null?'Sin especificar':elemento.created_at}</Text>
+                            <Text  fontSize={['sm', 'md', 'lg']} >Descripcion: {elemento.description==null?elemento.alt_description:elemento.description}</Text>
+                            <Text  fontSize={['sm', 'md', 'lg']} >Ubicacion: {elemento.user.location==null? 'Sin especificar':elemento.user.location}</Text>
+                            <Text  fontSize={['sm', 'md', 'lg']} >Likes: {elemento.likes==null? 'Sin especificar':elemento.likes}</Text>
+                            <Text  fontSize={['sm', 'md', 'lg']} >By {elemento.user.name==null? 'Sin especificar':elemento.user.name}</Text>
+                            <Text fontSize={['sm', 'md', 'lg']} >Fecha: {elemento.created_at==null?'Sin especificar':elemento.created_at}</Text>
                             </>:null
                             )}
                         </Box>
