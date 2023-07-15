@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Text, Flex,Image, Box, Button } from '@chakra-ui/react'
+import { Text, Flex,Image, Box, Button,Progress } from '@chakra-ui/react'
 import cruz from '/cruz.svg'
 import left from '/left.svg'
 import right from '/right.svg'
@@ -60,10 +60,12 @@ const Zoom = ({texto,numero,cambio,setsrczoom,srczoom,setiden,iden,src,setactiva
                         <Button _hover={{}} bg='transparent' onClick={atras}><Image src={left}/></Button>
                     </Box>
                     <Box overflow={'scroll'} overflowX={'hidden'} h={'100vh'}  position="relative">
+                    <Progress value={50} size="0.5em" colorScheme="teal" />
                         <Image justifyContent={'center'} src={srczoom} alt="" />
                         <Button _hover={{}} display={descrp?'none':'block'} sx={estilo.boton} onClick={description}><Image src={up}/> </Button>
                         {descrp&&
                         <Box className={descrp ? 'classdescripcion2' :null} sx={estilo.descrp} >
+                              
                             <Button _hover={{}} sx={estilo.boton2} onClick={description}> 
                                 <Image src={down}/> 
                             </Button>

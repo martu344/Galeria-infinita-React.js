@@ -14,7 +14,6 @@ let verificador=true
   const [{url,urlbuscador},arrayfotos]=useState({url:[],urlbuscador:[]})
   const[{numero,texto},cambio]=useState({numero:1,texto:''})
   const [scrolltop,setscrolltop]=useState(0)
-  const[error,seterror]=useState(null)
   window.addEventListener('scroll', scrollInfinito);
 
  
@@ -32,54 +31,36 @@ let verificador=true
     }
 
  useEffect(()=>{
-  
-    if(verificador){
-<<<<<<< HEAD
-           async function llamado(){
-            await fetch(`https://api.unsplash.com/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk`)
-            .then(respuesta=>respuesta.json())
-            .then(numero<=1?datos =>arrayfotos({url:datos}):datos => arrayfotos({url:url.concat(datos),urlbuscador}))
-                console.log("paso++", url)
-            }
-        llamado()
-        setaltura(altura+100)
-       }
-       else{ 
-          async function buscando(){
-            await fetch(`https://api.unsplash.com/search/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk&query=${texto}`)
-            .then(respuesta=>respuesta.json())
-            .then(numero<=1?datos =>arrayfotos({urlbuscador:datos.results}):datos => arrayfotos({url,urlbuscador:urlbuscador.concat(datos.results)}))   
-            console.log("paso++", urlbuscador)
-=======
-      try{     
-          async function llamado(){
-          await fetch(`https://api.unsplash.com/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk`)
-          .then(respuesta=>respuesta.json())
-          .then(numero<=1?datos =>arrayfotos({url:datos}):datos => arrayfotos({url:url.concat(datos),urlbuscador}))
-              // console.log("paso++", url)
->>>>>>> 08f59d78c45e0877beedf43e86563b6e3decdbae
+        
+         if(verificador){  
+              async function llamado(){
+              await fetch(`https://api.unsplash.com/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk`)
+              .then(respuesta=>respuesta.json())
+              .then(numero<=1?datos =>arrayfotos({url:datos}):datos => arrayfotos({url:url.concat(datos),urlbuscador}))
+                  // console.log("paso++", url)
+              }
+              llamado()
+              setaltura(altura+100)
           }
-        llamado()}
-      catch(mensaje){
-        seterror(mensaje)
-        console.log(error)
-      } 
-      setaltura(altura+100)
-       }
-    else{ 
-          async function buscando(){
-          await fetch(`https://api.unsplash.com/search/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk&query=${texto}`)
-          .then(respuesta=>respuesta.json())
-          .then(numero<=1?datos =>arrayfotos({urlbuscador:datos.results}):datos => arrayfotos({url,urlbuscador:urlbuscador.concat(datos.results)}))   
-        }
-        buscando()
-        setaltura(altura+100)
-       }}, [numero,texto])
-     
+          else{ 
+                async function buscando(){
+                await fetch(`https://api.unsplash.com/search/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk&query=${texto}`)
+                .then(respuesta=>respuesta.json())
+                .then(numero<=1?datos =>arrayfotos({urlbuscador:datos.results}):datos => arrayfotos({url,urlbuscador:urlbuscador.concat(datos.results)}))   
+                }
+                buscando()
+                setaltura(altura+100)
+              }
+   
+          
+ 
+        }, [numero,texto])
+   
+ 
   
   return (
     <>
-    {error&&<h1>ERROR</h1>}
+   
       <Flex justifyContent={'center'}>
         <InputGroup  sx={estilo.input} >
           <Input value={texto} onChange={buscador}  type="text" placeholder="Buscar imagen" />

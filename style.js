@@ -34,7 +34,8 @@ const estilo={
         bottom:"0",
         left:"0",
         right:"0",
-        bg:'rgba(0, 0, 0, 0.6)'
+        bg:'rgba(0, 0, 0, 0.6)',
+        w:'1em'
       },
       boton2: {
         textAlign:'center',
