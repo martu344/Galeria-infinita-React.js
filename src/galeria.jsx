@@ -30,7 +30,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
                             ?
                             <>
                                 <Box position="relative">
-                                    <Image marginTop='5' marginBottom='5'key={elemento.id} id={index} onClick={zoom}  src={elemento.urls.small}/> 
+                                    <Image _hover={{cursor:'zoom-in'}} marginTop='5' marginBottom='5'key={elemento.id} id={index} onClick={zoom}  src={elemento.urls.small}/> 
                                     <Text sx={estilo.text}>
                                     By {elemento.user.name}
                                     </Text>
@@ -48,7 +48,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
                             ?
                             <>
                                 <Box position="relative" >
-                                    <Image marginTop='5' marginBottom='5'key={elemento.id}id={index}onClick={zoom}  src={elemento.urls.small}/> 
+                                    <Image _hover={{cursor:'zoom-in'}} marginTop='5' marginBottom='5'key={elemento.id}id={index}onClick={zoom}  src={elemento.urls.small}/> 
                                     <Text sx={estilo.text}>
                                         By {elemento.user.name}
                                     </Text>
@@ -65,7 +65,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
                            ?
                            <>
                                 <Box position="relative" >
-                                    <Image marginTop='5' marginBottom='5' key={elemento.id} id={index}onClick={zoom}  src={elemento.urls.small}/> 
+                                    <Image _hover={{cursor:'zoom-in'}} marginTop='5' marginBottom='5' key={elemento.id} id={index}onClick={zoom}  src={elemento.urls.small}/> 
                                     <Text sx={estilo.text}>
                                     By {elemento.user.name}
                                     </Text>

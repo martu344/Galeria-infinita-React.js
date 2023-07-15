@@ -37,7 +37,7 @@ let verificador=true
               await fetch(`https://api.unsplash.com/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk`)
               .then(respuesta=>respuesta.json())
               .then(numero<=1?datos =>arrayfotos({url:datos}):datos => arrayfotos({url:url.concat(datos),urlbuscador}))
-                  // console.log("paso++", url)
+                   console.log("paso++", url)
               }
               llamado()
               setaltura(altura+100)
@@ -51,9 +51,6 @@ let verificador=true
                 buscando()
                 setaltura(altura+100)
               }
-   
-          
- 
         }, [numero,texto])
    
  
@@ -63,7 +60,7 @@ let verificador=true
    
       <Flex  justifyContent={'center'}>
         <InputGroup  sx={estilo.input} >
-          <Input value={texto} onChange={buscador}  type="text" placeholder="Buscar imagen" />
+          <Input value={texto} onChange={buscador}  bg={scrolltop>10?"#101010":"#242424"} type="text" placeholder="Buscar imagen" />
           <InputRightElement width="auto">
             <Button bg='transparent' _hover={{}} variant="solid"><Img src={search}/></Button>
           </InputRightElement>

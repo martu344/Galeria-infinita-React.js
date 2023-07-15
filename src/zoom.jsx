@@ -47,8 +47,7 @@ const Zoom = ({ texto,numero,cambio,setsrczoom,srczoom,setiden,iden,src,setactiv
         }
        
         }
-     
-      
+  
        // console.log('iden+1 = ',iden)
     
     useEffect(()=>{
