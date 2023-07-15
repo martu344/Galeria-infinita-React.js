@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Text,Image, Box} from '@chakra-ui/react'
 import { estilo } from '../style'
 import heart from '/heart-solid.svg'

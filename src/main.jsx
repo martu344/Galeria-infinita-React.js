@@ -8,6 +8,7 @@ import { useState } from 'react'
 const Main = ()=>{
 const[activado,setactivador]=useState(false)
 const valoroverflow= activado?'hidden':'auto';
+
 const theme = extendTheme({
   styles: {
     global: {
@@ -23,8 +24,8 @@ const theme = extendTheme({
 });
 return (
 
-  <React.StrictMode>
-     <ChakraProvider  theme={theme}>
+<React.StrictMode>
+    <ChakraProvider  theme={theme}>
     <App activado={activado} setactivador={setactivador} />
     </ChakraProvider>
 </React.StrictMode>
