@@ -28,3 +28,29 @@
       transform: translateY(-1%);
     }
   }
+
+  
+    /* scrollbar.css */
+.barrascroll {
+  scrollbar-width: thin;
+  scrollbar-color: gray lightgray;
+}
+
+.barrascroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.barrascroll::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 8px;
+}
+
+.barrascroll::-webkit-scrollbar-thumb:hover {
+  background-color: darkgray;
+}
+
+.barrascroll::-webkit-scrollbar-track {
+  background-color: lightgray;
+}
+
+  

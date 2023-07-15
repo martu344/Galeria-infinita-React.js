@@ -48,7 +48,7 @@ const estilo={
       top:'0',
       left:"0",
       right:"0",
-      zIndex:'5',
+      zIndex:'15',
       bottom:"0",
     },
     input:{
@@ -60,8 +60,8 @@ const estilo={
       borderRadius:'5',
       height:'3em',
       paddingLeft:'5',
-      
-      
+      position:'fixed',
+      zIndex:'1'
     }
 }
 

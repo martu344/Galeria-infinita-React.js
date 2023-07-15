@@ -24,7 +24,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
           {src == undefined ? 
             <p>NOT FOUND!!</p>
            : 
-                <Box overflow={'hidden'} filter={activado?"blur(5px)":'auto'} className='row'>
+                <Box marginTop='3.5em'overflow={'hidden'} filter={activado?"blur(5px)":'auto'} className='row'>
                     <div className='col'> 
                         {src.map((elemento,index)=> index%3==0
                             ?

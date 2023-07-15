@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Text, Flex,Image, Box, Button,Progress } from '@chakra-ui/react'
+import { Text, Flex,Image, Box, Button,extendTheme } from '@chakra-ui/react'
 import cruz from '/cruz.svg'
 import left from '/left.svg'
 import right from '/right.svg'
@@ -8,8 +8,22 @@ import down from '/down.svg'
 import { estilo } from '../style'
 import '../stile.css'
 
+const theme = extendTheme({
+    styles: {
+      global: {
+        "::-webkit-scrollbar": {
+          width: "1px",
+        },
+        "::-webkit-scrollbar-thumb": {
+          backgroundColor: "black.300",
+          borderRadius: "none",
+        },
+      },
+    },
+  });
 
-const Zoom = ({texto,numero,cambio,setsrczoom,srczoom,setiden,iden,src,setactivador,activado,scrolltop})=>{
+
+const Zoom = ({ texto,numero,cambio,setsrczoom,srczoom,setiden,iden,src,setactivador,activado,scrolltop})=>{
   
     const [descrp,setdescrp]=useState(false)
     
@@ -51,7 +65,7 @@ const Zoom = ({texto,numero,cambio,setsrczoom,srczoom,setiden,iden,src,setactiva
 
     return(
         <>
-        <Flex overflow={activado?"hidden":'auto'}  sx={estilo.zoom} style={{ top:`${scrolltop}px`
+        <Flex sx={estilo.zoom} style={{ top:`${scrolltop}px`
              }}>
             <React.Fragment >
                 <Flex   >
@@ -59,8 +73,7 @@ const Zoom = ({texto,numero,cambio,setsrczoom,srczoom,setiden,iden,src,setactiva
                         <Button _hover={{}} bg='transparent' h='10vh'marginBottom="40vh"onClick={cerrar}><Image src={cruz}/></Button>
                         <Button _hover={{}} bg='transparent' onClick={atras}><Image src={left}/></Button>
                     </Box>
-                    <Box overflow={'scroll'} overflowX={'hidden'} h={'100vh'}  position="relative">
-                    <Progress value={50} size="0.5em" colorScheme="teal" />
+                    <Box className='barrascroll' overflow={'scroll'} overflowX={'hidden'} h={'100vh'}  position="relative">
                         <Image justifyContent={'center'} src={srczoom} alt="" />
                         <Button _hover={{}} display={descrp?'none':'block'} sx={estilo.boton} onClick={description}><Image src={up}/> </Button>
                         {descrp&&

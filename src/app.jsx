@@ -61,7 +61,7 @@ let verificador=true
   return (
     <>
    
-      <Flex justifyContent={'center'}>
+      <Flex  justifyContent={'center'}>
         <InputGroup  sx={estilo.input} >
           <Input value={texto} onChange={buscador}  type="text" placeholder="Buscar imagen" />
           <InputRightElement width="auto">
@@ -70,7 +70,7 @@ let verificador=true
         </InputGroup>
       </Flex>
    
-   <Galeria texto={texto} numero={numero} cambio={cambio} setactivador={setactivador} activado={activado} scrolltop={scrolltop} url={url} urlbuscador={urlbuscador} verificador={verificador} />
+   <Galeria  texto={texto} numero={numero} cambio={cambio} setactivador={setactivador} activado={activado} scrolltop={scrolltop} url={url} urlbuscador={urlbuscador} verificador={verificador} />
  
     </>
   )
