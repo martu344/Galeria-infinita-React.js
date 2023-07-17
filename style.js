@@ -8,9 +8,10 @@ const estilo={
         color:"white",
         fontWeight:"bold",
         textAlign:"center",
-        fontSize:['sm', 'md', 'lg'],
+        fontSize:['xs','sm', 'md', 'lg'],
       },
       text2: {
+
         position:"absolute",
         bottom:"0",
         right:"0",

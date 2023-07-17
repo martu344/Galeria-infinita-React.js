@@ -10,7 +10,7 @@ let verificador=true
 
 
  function App({activado,setactivador}) {
-  const [altura,setaltura]=useState(100)
+  const [altura,setaltura]=useState(1)
   const [{url,urlbuscador},arrayfotos]=useState({url:[],urlbuscador:[]})
   const[{numero,texto},cambio]=useState({numero:1,texto:''})
   const [scrolltop,setscrolltop]=useState(0)
@@ -37,9 +37,19 @@ let verificador=true
               await fetch(`https://api.unsplash.com/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk`)
               .then(respuesta=>respuesta.json())
               .then(numero<=1?datos =>arrayfotos({url:datos}):datos => arrayfotos({url:url.concat(datos),urlbuscador}))
-                   console.log("paso++", url)
+             
+                   cambio({numero:(numero+1),texto})
               }
               llamado()
+              if(numero==2){
+              async function llamado2(){
+                await fetch(`https://api.unsplash.com/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk`)
+                .then(respuesta=>respuesta.json())
+                .then(numero<=1?datos =>arrayfotos({url:datos}):datos => arrayfotos({url:url.concat(datos),urlbuscador}))
+                   
+                }
+                llamado2()}
+         
               setaltura(altura+100)
           }
           else{ 
@@ -47,14 +57,22 @@ let verificador=true
                 await fetch(`https://api.unsplash.com/search/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk&query=${texto}`)
                 .then(respuesta=>respuesta.json())
                 .then(numero<=1?datos =>arrayfotos({urlbuscador:datos.results}):datos => arrayfotos({url,urlbuscador:urlbuscador.concat(datos.results)}))   
+                cambio({numero:(numero+1),texto})
                 }
                 buscando()
+                if(numero==2){   async function buscando2(){
+                  await fetch(`https://api.unsplash.com/search/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk&query=${texto}`)
+                  .then(respuesta=>respuesta.json())
+                  .then(numero<=1?datos =>arrayfotos({urlbuscador:datos.results}):datos => arrayfotos({url,urlbuscador:urlbuscador.concat(datos.results)}))   
+                  console.log("paso++", urlbuscador)
+                  }
+                  buscando2()}
                 setaltura(altura+100)
               }
         }, [numero,texto])
-   
+
+
  
-  
   return (
     <>
    

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text,Image, Box} from '@chakra-ui/react'
+import { Text,Image, Box,useMediaQuery} from '@chakra-ui/react'
 import { estilo } from '../style'
 import heart from '/heart-solid.svg'
 import '../stile.css'
@@ -18,7 +18,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
         setsrczoom(event.target.getAttribute('src'))
         setiden(event.target.getAttribute('id'))
     }
-    
+    const [mini] = useMediaQuery("(min-width: 768px)");
     return (
       <>
           {src == undefined ? 
@@ -34,7 +34,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
                                     <Text sx={estilo.text}>
                                     By {elemento.user.name}
                                     </Text>
-                                    <Text sx={estilo.text2}>
+                                    <Text sx={estilo.text2} display={mini?'block':'none'}>
                                         <img src={heart} alt="" /> 
                                         {elemento.likes}
                                     </Text>
@@ -52,7 +52,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
                                     <Text sx={estilo.text}>
                                         By {elemento.user.name}
                                     </Text>
-                                    <Text sx={estilo.text2}>{/*sacar este texto cuando para el cel */}
+                                    <Text sx={estilo.text2} display={mini?'block':'none'}>
                                     <img src={heart} alt="" />  
                                     {elemento.likes}
                                     </Text>
@@ -69,7 +69,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
                                     <Text sx={estilo.text}>
                                     By {elemento.user.name}
                                     </Text>
-                                    <Text sx={estilo.text2}>
+                                    <Text sx={estilo.text2} display={mini?'block':'none'}>
                                     <img src={heart} alt="" /> 
                                     {elemento.likes}
                                     </Text>
@@ -82,7 +82,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
           }
             
         {
-          activado &&  <Zoom texto={texto} numero={numero} cambio={cambio}  setsrczoom={setsrczoom} srczoom={srczoom} setiden={setiden} iden={iden} src={src} setactivador={setactivador} activado={activado} scrolltop={scrolltop}/>
+          activado &&  <Zoom verificador={verificador} texto={texto} numero={numero} cambio={cambio}  setsrczoom={setsrczoom} srczoom={srczoom} setiden={setiden} iden={iden} src={src} setactivador={setactivador} activado={activado} scrolltop={scrolltop}/>
         }
         </>
     )

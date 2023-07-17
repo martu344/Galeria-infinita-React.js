@@ -23,7 +23,7 @@ const theme = extendTheme({
   });
 
 
-const Zoom = ({ texto,numero,cambio,setsrczoom,srczoom,setiden,iden,src,setactivador,activado,scrolltop})=>{
+const Zoom = ({verificador, texto,numero,cambio,setsrczoom,srczoom,setiden,iden,src,setactivador,activado,scrolltop})=>{
   
     const [descrp,setdescrp]=useState(false)
     
@@ -84,6 +84,7 @@ const Zoom = ({ texto,numero,cambio,setsrczoom,srczoom,setiden,iden,src,setactiv
                             {src.map((elemento,index)=> iden==index?
                             <>
                             <Text  fontSize={['sm', 'md', 'lg']} >Descripcion: {elemento.description==null?elemento.alt_description:elemento.description}</Text>
+                            {verificador?null:<Text>Tags: {elemento.tags[0].title}, {elemento.tags[1].title}, {elemento.tags[2].title}</Text>}
                             <Text  fontSize={['sm', 'md', 'lg']} >Ubicacion: {elemento.user.location==null? 'Sin especificar':elemento.user.location}</Text>
                             <Text  fontSize={['sm', 'md', 'lg']} >Likes: {elemento.likes==null? 'Sin especificar':elemento.likes}</Text>
                             <Text  fontSize={['sm', 'md', 'lg']} >By {elemento.user.name==null? 'Sin especificar':elemento.user.name}</Text>
