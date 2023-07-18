@@ -31,7 +31,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
                             <>
                                 <Box position="relative">
                                     <Image _hover={{cursor:'zoom-in'}} marginTop='5' marginBottom='5'key={elemento.id} id={index} onClick={zoom}  src={elemento.urls.small}/> 
-                                    <Text sx={estilo.text}>
+                                    <Text sx={estilo.text} display={mini?'block':'none'}>
                                     By {elemento.user.name}
                                     </Text>
                                     <Text sx={estilo.text2} display={mini?'block':'none'}>
@@ -49,7 +49,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
                             <>
                                 <Box position="relative" >
                                     <Image _hover={{cursor:'zoom-in'}} marginTop='5' marginBottom='5'key={elemento.id}id={index}onClick={zoom}  src={elemento.urls.small}/> 
-                                    <Text sx={estilo.text}>
+                                    <Text sx={estilo.text} display={mini?'block':'none'}>
                                         By {elemento.user.name}
                                     </Text>
                                     <Text sx={estilo.text2} display={mini?'block':'none'}>
@@ -66,7 +66,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
                            <>
                                 <Box position="relative" >
                                     <Image _hover={{cursor:'zoom-in'}} marginTop='5' marginBottom='5' key={elemento.id} id={index}onClick={zoom}  src={elemento.urls.small}/> 
-                                    <Text sx={estilo.text}>
+                                    <Text sx={estilo.text} display={mini?'block':'none'}>
                                     By {elemento.user.name}
                                     </Text>
                                     <Text sx={estilo.text2} display={mini?'block':'none'}>
@@ -82,7 +82,7 @@ const Galeria = ({texto,numero,cambio,setactivador,activado,scrolltop,url,urlbus
           }
             
         {
-          activado &&  <Zoom verificador={verificador} texto={texto} numero={numero} cambio={cambio}  setsrczoom={setsrczoom} srczoom={srczoom} setiden={setiden} iden={iden} src={src} setactivador={setactivador} activado={activado} scrolltop={scrolltop}/>
+          activado &&  <Zoom mini={mini} verificador={verificador} texto={texto} numero={numero} cambio={cambio}  setsrczoom={setsrczoom} srczoom={srczoom} setiden={setiden} iden={iden} src={src} setactivador={setactivador} activado={activado} scrolltop={scrolltop}/>
         }
         </>
     )

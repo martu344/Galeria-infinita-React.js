@@ -8,7 +8,7 @@ const estilo={
         color:"white",
         fontWeight:"bold",
         textAlign:"center",
-        fontSize:['xs','sm', 'md', 'lg'],
+        fontSize:['xxs','sm', 'md', 'lg'],
       },
       text2: {
 
@@ -19,7 +19,7 @@ const estilo={
         color:"white",
         fontWeight:"bold",
         textAlign:"center",
-        fontSize:['sm', 'md', 'lg']
+        fontSize:['xs','sm', 'md', 'lg']
       },
       zoom:{
         position: "absolute",  

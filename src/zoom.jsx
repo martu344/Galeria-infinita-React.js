@@ -23,7 +23,7 @@ const theme = extendTheme({
   });
 
 
-const Zoom = ({verificador, texto,numero,cambio,setsrczoom,srczoom,setiden,iden,src,setactivador,activado,scrolltop})=>{
+const Zoom = ({mini, verificador, texto,numero,cambio,setsrczoom,srczoom,setiden,iden,src,setactivador,activado,scrolltop})=>{
   
     const [descrp,setdescrp]=useState(false)
     
@@ -61,7 +61,7 @@ const Zoom = ({verificador, texto,numero,cambio,setsrczoom,srczoom,setiden,iden,
         
         setdescrp(!descrp)
     }
-
+ console.log('prueba',mini)
     return(
         <>
         <Flex sx={estilo.zoom} style={{ top:`${scrolltop}px`
@@ -72,7 +72,7 @@ const Zoom = ({verificador, texto,numero,cambio,setsrczoom,srczoom,setiden,iden,
                         <Button _hover={{}} bg='transparent' h='10vh'marginBottom="40vh"onClick={cerrar}><Image src={cruz}/></Button>
                         <Button _hover={{}} bg='transparent' onClick={atras}><Image src={left}/></Button>
                     </Box>
-                    <Box className='barrascroll' overflow={'scroll'} overflowX={'hidden'} h={'100vh'}  position="relative">
+                    <Box className='barrascroll' overflow={mini?'scroll':'hidden'} overflowX={'hidden'} w={'87vw'} h={'100vh'}  position="relative">
                         <Image justifyContent={'center'} src={srczoom} alt="" />
                         <Button _hover={{}} display={descrp?'none':'block'} sx={estilo.boton} onClick={description}><Image src={up}/> </Button>
                         {descrp&&
