@@ -37,20 +37,20 @@
 }
 
 .barrascroll::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 .barrascroll::-webkit-scrollbar-thumb {
-  background-color: gray;
-  border-radius: 8px;
+  background-color:  lightgray;
+  border-radius: 4px;
 }
 
 .barrascroll::-webkit-scrollbar-thumb:hover {
-  background-color: darkgray;
+  background-color:  transparent;
 }
 
 .barrascroll::-webkit-scrollbar-track {
-  background-color: lightgray;
+  background-color:transparent;
 }
 
   

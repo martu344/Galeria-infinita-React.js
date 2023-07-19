@@ -61,7 +61,7 @@ const Zoom = ({mini, verificador, texto,numero,cambio,setsrczoom,srczoom,setiden
         
         setdescrp(!descrp)
     }
- console.log('prueba',mini)
+
     return(
         <>
         <Flex sx={estilo.zoom} style={{ top:`${scrolltop}px`

@@ -60,14 +60,6 @@ let verificador=true
                 cambio({numero:(numero+1),texto})
                 }
                 buscando()
-                if(numero==2){   async function buscando2(){
-                  await fetch(`https://api.unsplash.com/search/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk&query=${texto}`)
-                  .then(respuesta=>respuesta.json())
-                  .then(numero<=1?datos =>arrayfotos({urlbuscador:datos.results}):datos => arrayfotos({url,urlbuscador:urlbuscador.concat(datos.results)}))   
-                  console.log("paso++", urlbuscador)
-                  }
-                  buscando2()}
-                setaltura(altura+100)
               }
         }, [numero,texto])
 
