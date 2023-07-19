@@ -72,7 +72,7 @@ const Zoom = ({mini, verificador, texto,numero,cambio,setsrczoom,srczoom,setiden
                         <Button _hover={{}} bg='transparent' h='10vh'marginBottom="40vh"onClick={cerrar}><Image src={cruz}/></Button>
                         <Button _hover={{}} bg='transparent' onClick={atras}><Image src={left}/></Button>
                     </Box>
-                    <Box className='barrascroll' overflow={mini?'scroll':'hidden'} overflowX={'hidden'} w={'87vw'} h={'100vh'}  position="relative">
+                    <Box className='barrascroll' overflow={mini?'scroll':'hidden'} overflowX={'hidden'} w={mini?'auto':'87vw'} h={'100vh'}  position="relative">
                         <Image justifyContent={'center'} src={srczoom} alt="" />
                         <Button _hover={{}} display={descrp?'none':'block'} sx={estilo.boton} onClick={description}><Image src={up}/> </Button>
                         {descrp&&
