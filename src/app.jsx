@@ -14,6 +14,7 @@ let verificador=true
   const [{url,urlbuscador},arrayfotos]=useState({url:[],urlbuscador:[]})
   const[{numero,texto},cambio]=useState({numero:1,texto:''})
   const [scrolltop,setscrolltop]=useState(0)
+  const key= 'pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk'
   window.addEventListener('scroll', scrollInfinito);
 
  
@@ -34,30 +35,18 @@ let verificador=true
         
          if(verificador){  
               async function llamado(){
-              await fetch(`https://api.unsplash.com/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk`)
+              await fetch(`https://api.unsplash.com/photos/?page=${numero};client_id=${key}`)
               .then(respuesta=>respuesta.json())
               .then(numero<=1?datos =>arrayfotos({url:datos}):datos => arrayfotos({url:url.concat(datos),urlbuscador}))
-             
-                   cambio({numero:(numero+1),texto})
               }
               llamado()
-              if(numero==2){
-              async function llamado2(){
-                await fetch(`https://api.unsplash.com/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk`)
-                .then(respuesta=>respuesta.json())
-                .then(numero<=1?datos =>arrayfotos({url:datos}):datos => arrayfotos({url:url.concat(datos),urlbuscador}))
-                   
-                }
-                llamado2()}
-         
               setaltura(altura+100)
           }
           else{ 
                 async function buscando(){
-                await fetch(`https://api.unsplash.com/search/photos/?page=${numero};client_id=pmDs_vJUQiDVoT9xBds_ffy5W7J6I__HKSHFaQyD7sk&query=${texto}`)
+                await fetch(`https://api.unsplash.com/search/photos/?page=${numero};client_id=${key}&query=${texto}`)
                 .then(respuesta=>respuesta.json())
                 .then(numero<=1?datos =>arrayfotos({urlbuscador:datos.results}):datos => arrayfotos({url,urlbuscador:urlbuscador.concat(datos.results)}))   
-                cambio({numero:(numero+1),texto})
                 }
                 buscando()
                 setaltura(altura+100)
