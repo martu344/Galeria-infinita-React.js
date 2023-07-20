@@ -60,6 +60,7 @@ let verificador=true
                 cambio({numero:(numero+1),texto})
                 }
                 buscando()
+                setaltura(altura+100)
               }
         }, [numero,texto])
 
