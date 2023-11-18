@@ -3,7 +3,6 @@
 <h1 align="center">Galeria en React.js👋</h1>
 </div>
 
-<img alt="Night Coding" src="./assets/Hand%20Wave.gif" width='40' align="left"/>
 <img src="./public/muestra.PNG">
 
 <hr>
