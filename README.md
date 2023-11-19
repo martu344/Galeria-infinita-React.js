@@ -15,3 +15,4 @@ En la misma se puede apreciar a primera vista imagenes random sin fin, cada una 
 a medida que vamos tipeando el contenido se muestra un resultado sin fin asi como algunas caracteristicas adiconales en cada una de las iamgenes. 
 
 </p>
+Deploy: https://martu344.github.io/Galeria-infinita-React.js/
